@@ -9,7 +9,7 @@ the external-writing contract.
 
 ## Do you need this?
 
-ROLE: The operating doctrine ingredient. It carries the default five-stage pipeline, the universal role delegation map, the standard handoff protocol, the quality gates, and the external-writing contract.
+ROLE: The operating doctrine ingredient. It carries the default five-stage pipeline, the universal role delegation map, the standard handoff protocol, the quality gates, the external-writing contract, and the standing duty to contribute findings back to the repositories a project depends on.
 
 USE WHEN:
 - A project runs the Protean pipeline and needs the stage order, ownership boundaries, and gates a change must pass, read from `skills/protean-operating-doctrine/SKILL.md`.
