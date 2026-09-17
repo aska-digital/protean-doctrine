@@ -3,6 +3,25 @@
 All notable changes to this repository are recorded here. The format is a short
 entry per release: what changed, why, and how it was verified.
 
+## 1.2.0
+
+- **What:** add the *When a turn closes* rule to section 13.1 of the operating-doctrine skill.
+  Section 13.1 gave the contribution duty a trigger; this binds that trigger to conversation
+  turns: on every worker-completion turn and the first return-from-absence turn, the evaluator
+  runs the control-plane skill's end-of-turn checklist (section H) before it replies — poll
+  classification (a notification is a trigger, never proof of done), one bounded closure pass,
+  then exactly one of continue-live-lane, dispatch-unblocked-owner-work, or
+  claim-epoch-and-dispatch-contribution. A budget-exited lane is handled the same turn, never
+  by silence. The rule lives once, in the control plane; this section carries the duty and the
+  pointer and restates no bounded value.
+- **Why:** an observed production incident: workers finished, the orchestrator polled and
+  replied, and dispatched nothing — the idle predicate existed but nothing attached it to the
+  completion turn, so an idle turn ended lawfully. A standing duty whose trigger is not bound to
+  a turn is a preference.
+- **How verified:** internal-names and dangling-reference gates run clean on the changed tree;
+  skill frontmatter version, the ingredient descriptor, and this changelog bumped in the same
+  change.
+
 ## 1.1.0
 
 - **What:** add section 13.1, *Continual contribution - the standing duty, made mechanical*, to
