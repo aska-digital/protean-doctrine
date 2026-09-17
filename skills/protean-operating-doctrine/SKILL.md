@@ -1,7 +1,7 @@
 ---
 name: protean-operating-doctrine
 description: Use when running any project with the Protean pipeline. Default stages, delegation map, handoff protocol, and QA gates.
-version: 1.3.0
+version: 1.4.0
 license: MIT
 ---
 
@@ -107,6 +107,35 @@ Handoff brief template:
 - Assumptions: `<list>`
 - Open (needs user or orchestrator): `<list>`
 - For downstream `<role>`: what to use, what to ignore
+
+Public-surface admission fields (mandatory):
+
+A lane that can produce public text declares six fields in its brief. A brief
+missing any one of them is incomplete in the same sense as an empty `context`:
+do not dispatch it, and do not let it reach the public-writing/QA stage. A
+lane that produces no public text records `public_surface: none` and stops
+there.
+
+- `public_surfaces` — every artifact path or URL the lane will publish, each
+  with its surface class (`issue_body`, `pr_body`, `comment`, `review`,
+  `other`)
+- `claim_register` — per claim: claim_id, artifact line, claim class,
+  evidence_ref, boundary, scope wording, and the public issue/PR ref where
+  certainty is claimed
+- `artifact_pair` — pair_id, primary, secondary, the distinct job of each, the
+  information units the secondary may carry, and the deletion-test owner
+- `standalone_policy` — issue and PR bodies strict standalone; for a comment
+  or review, addressee required yes/no plus the requirement reference
+- `qa_fixture_set` — the fixture IDs the QA pass must run for this lane
+- `handoff_stop_condition` — all three public-QA gates PASS and the
+  second-member proofread/fact audit recorded
+
+The field names are the contract this template owns. The gate conditions these
+fields feed — evidence-linked public claims, cross-artifact division of labor,
+and standalone public prose — are `PQA-CLM`, `PQA-DOL`, and `PQA-STAND` in the
+github-pr-audit QA checklist (the github-flow ingredient). Read the conditions
+there, in one place: a copy here would be a second source of truth for the
+same rule, and the two copies would drift.
 
 ## 5. QA gate and scope guardrails
 
