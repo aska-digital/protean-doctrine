@@ -1,7 +1,7 @@
 ---
 name: protean-operating-doctrine
 description: Use when running any project with the Protean pipeline. Default stages, delegation map, handoff protocol, and QA gates.
-version: 1.2.0
+version: 1.3.0
 license: MIT
 ---
 
@@ -384,6 +384,40 @@ anything a human approves is rendered by the draft pipeline rather than hand-wri
 
 Repositories the team depends on get the improvements it identifies, not just
 references it indexes. This is a standing duty, not optional side work.
+
+### 13.2 Draft or ready: the contribution entry state
+
+A contribution's first platform decision is the state it opens in. The rule is
+draft-first for anything large or high-attention; a ready pull request is the
+narrow exception, not the default.
+
+| contribution class | state at open | ready transition |
+|---|---|---|
+| Small fix in a repository we administer | Ready, and only after the independent pre-post verdict passes | allowed at open; convert back to a draft if scope or evidence moves |
+| Large change in a repository we administer | Draft | allowed when the slice, body, tests, and evidence are stable and the pre-ready verdict is PASS; a byte or scope change repeats the verdict |
+| Contribution to a repository we do not administer | local draft first; a GitHub Draft once the exact bytes are approved or a bounded grant covers them | a separate, explicitly approved step, never the entry state |
+| Large or high-attention contribution on a target we do not administer | Draft, and never opened ready | only by an approval or a grant that names the exact thread, with new-fact evidence and the target's rules satisfied |
+
+The platform facts that carry this rule, and no more: a pull request can be
+created as a draft; a draft cannot be merged; code owners are not automatically
+requested to review a draft; marking a pull request as ready for review requests
+reviews from any code owners; a pull request can be converted back to a draft at
+any time. Whether checks run on a draft, and how draft state interacts with branch
+protection, rulesets, required checks, or merge queues, is not stated by that
+documentation. Read the live repository state for both instead of inferring them.
+
+**Composition with the lanes.** The execute lane (the build role) implements,
+opens, and iterates the pull request. The review lane (the QA role) audits the
+exact live head, checks the required live gates, and owns the merge decision. The
+author never merges its own pull request and never self-approves. Marking ready is
+a lifecycle transition the execute lane owns under the approval in force; it
+approves nothing by itself. Any new head voids the previous verdict and forces a
+fresh live-head audit. A merge happens only on the exact reviewed head, with the
+required checks green and a formal verdict.
+
+The procedure for both state flips, and the rule that routes contribution work to
+them, live in the GitHub workflow pack and the control plane; this section carries
+the duty and the composition, and restates no bounded value.
 
 ## 14. Self-improvement flywheel and anti-loop discipline
 
