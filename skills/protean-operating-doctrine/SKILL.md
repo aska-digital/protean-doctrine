@@ -1,7 +1,7 @@
 ---
 name: protean-operating-doctrine
 description: Use when running any project with the Protean pipeline. Default stages, delegation map, handoff protocol, and QA gates.
-version: 1.0.0
+version: 1.1.0
 license: MIT
 ---
 
@@ -316,6 +316,56 @@ or documentation gaps that would substantiate a pull request or issue.
    self-approve external contributions.
 4. **Track** contribution status in the project awareness log:
    proposed, submitted, merged or rejected.
+
+### 13.1 Continual contribution — the standing duty, made mechanical
+
+The obligation above is a duty with no clock. Continual contribution mode gives it
+one, and it is the control plane that states the rule and the record gate that
+decides whether the mode may write. This section carries the duty and the pointers;
+it restates no bounded value, because a threshold living in two places is a defect
+with an owner.
+
+**Two modes.** Contribution work against a repository the operator administers is
+**internal** and needs no toggle: it is gated by evidence, the lane cap, the
+independent QA verdict, and the repository's own continuous integration. Contribution
+work whose target is not such a repository is **external** and is **off by default**
+behind one flag; while it is off, no remote write of any kind happens, including a
+push to a fork, and a local branch, commit, test run, and rendered draft are the
+deliverable.
+
+**When the mode runs.** From a machine-checked idle predicate — the running lane set
+is empty, no waiting item is unblocked, and no live claim is open — evaluated by
+exactly one evaluator per project, which claims the epoch before dispatching and then
+dispatches immediately. Internal work needs no approval to start; the external gate
+is what holds a draft back. A contribution lane never dispatches a lane and never
+acts on a second gap it finds: it records the finding instead.
+
+**What a lane must carry.** An evidenced gap with raw command output, a duplicate
+search, the target's own head at the start of the lane, the record's toggle value and
+its md5 at read time, the raw numbers of the target repository's backlog and thread
+attention read live, the exact head or hashes of what it produced, and the receipt
+that names all of it. A lane that cannot produce the first two does not contribute;
+it exits with the candidate list and the reason each candidate failed, which is a
+useful outcome and not a failure.
+
+**Who audits.** Every contribution — internal or external, pull request, issue, or
+review, however small — carries an independent QA verdict before it is posted,
+pushed, or merged. The author never audits their own work, and the auditor authors
+no fixes: findings route back to the lane's owner.
+
+**What is never done.** No pings or mentions of maintainers. No content-free writes
+in any thread. No unsolicited write to a high-traffic thread, and no attention
+manufactured to justify a write. No re-filing of a closed item without approval. No
+external merge, ever, without the operator. And no lane editing its own limits: the
+bounded values are law from the control-plane rule and the record, retunable only by
+an amendment to the rule.
+
+The rule, the preflight line, and the idle-trigger definition are in the
+`protean-control-plane` skill (section G). The value, the counters, the grant rows,
+and the enforcement command are the contribution-state record and the
+contribution-state gate of the `protean-ops` ingredient. The mechanics of drafting,
+deduplicating, and posting are the GitHub workflow pack's contribution procedure, and
+anything a human approves is rendered by the draft pipeline rather than hand-written.
 
 Repositories the team depends on get the improvements it identifies, not just
 references it indexes. This is a standing duty, not optional side work.

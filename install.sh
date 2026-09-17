@@ -5,7 +5,7 @@
 set -euo pipefail
 
 SLUG="protean-doctrine"
-VERSION="1.0.0"
+VERSION="1.1.0"
 
 PAYLOAD=(
   "skills/protean-operating-doctrine"
