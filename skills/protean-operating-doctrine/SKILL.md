@@ -1,7 +1,7 @@
 ---
 name: protean-operating-doctrine
 description: Use when running any project with the Protean pipeline. Default stages, delegation map, handoff protocol, and QA gates.
-version: 1.1.0
+version: 1.2.0
 license: MIT
 ---
 
@@ -339,6 +339,21 @@ exactly one evaluator per project, which claims the epoch before dispatching and
 dispatches immediately. Internal work needs no approval to start; the external gate
 is what holds a draft back. A contribution lane never dispatches a lane and never
 acts on a second gap it finds: it records the finding instead.
+
+**When a turn closes.** The trigger above is bound to turns, not to memory. On every
+worker-completion turn, and on the first return-from-absence turn, the evaluator runs
+the control-plane skill's end-of-turn checklist (section H) *before it replies*:
+snapshot the durable records, classify each lane by the process-registry poll — a
+completion notification is a trigger, never proof that work is done, and a receipt is
+terminal only when its last non-empty line is a terminal marker — apply at most one
+bounded closure pass, then take exactly one of the three branches: continue the live
+lane, dispatch an unblocked owner item, or claim the idle epoch and dispatch
+contribution work in the same turn. A budget-exited lane (dead handle, no receipt,
+missing lane directory) is never silence: it is relaunched, or the next owner task is
+dispatched, in that same turn. One closure pass and one new lane per claimed epoch
+bound the response against dispatch storms; a second evaluator on the same
+fingerprint loses the race and dispatches nothing. A completion turn that replies
+without a poll and a predicate result is a procedural violation by definition.
 
 **What a lane must carry.** An evidenced gap with raw command output, a duplicate
 search, the target's own head at the start of the lane, the record's toggle value and
