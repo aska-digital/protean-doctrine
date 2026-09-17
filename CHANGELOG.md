@@ -3,6 +3,29 @@
 All notable changes to this repository are recorded here. The format is a short
 entry per release: what changed, why, and how it was verified.
 
+## 1.3.0
+
+- **What:** add section 13.2, *Draft or ready: the contribution entry state*, to the
+  operating-doctrine skill. It states the entry state for each contribution class (draft for
+  anything large or high-attention; ready only for a small fix in a repository we administer, and
+  only after the independent pre-post verdict), the platform facts that carry the rule, the two
+  things that documentation does not state (whether checks run on a draft, and how draft state
+  interacts with branch protection, rulesets, required checks, or merge queues), and the lane
+  composition: the execute lane (build) implements, opens, and iterates; the review lane (QA)
+  audits the exact live head, checks the required live gates, and owns the merge decision; the
+  author never merges its own pull request; any new head voids the previous verdict.
+- **Why:** the entry state was the one platform decision the contribution sections left implicit,
+  so a large change could be opened ready, and a ready state could be read as a review verdict.
+  The policy that settles the entry state is locked, and this section carries its composition
+  without restating a bounded value.
+- **Division of the feature:** the exact draft and ready semantics, the CLI and API forms, and the
+  transition rules stay with the GitHub workflow pack; the rule that routes contribution work stays
+  with the control plane. This section states the duty and the lane composition only.
+- **How verified:** internal-names and dangling-reference gates run clean on the changed tree;
+  skill frontmatter version, the ingredient descriptor, the installer banner, and this changelog
+  bumped in the same change (the installer banner had drifted at 1.2.0).
+- **License:** MIT. The committed `LICENSE` file is authoritative.
+
 ## 1.2.0
 
 - **What:** add the *When a turn closes* rule to section 13.1 of the operating-doctrine skill.
