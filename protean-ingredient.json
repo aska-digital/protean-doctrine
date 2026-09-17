@@ -1,6 +1,6 @@
 {
   "slug": "protean-doctrine",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "contract": "The operating doctrine: the default pipeline, role delegation map, handoff protocol, QA gates, and external-writing discipline.",
   "kind": "skills",
   "entrypoint": "install.sh",
