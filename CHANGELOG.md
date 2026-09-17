@@ -3,6 +3,16 @@
 All notable changes to this repository are recorded here. The format is a short
 entry per release: what changed, why, and how it was verified.
 
+## 1.0.1
+
+- **What:** correct the continuous-integration workflow matrix expression. The
+  value was written with doubled braces, which made the expression invalid and
+  would have stopped the job from running.
+- **Why released as a patch, not as an edit:** the `v1.0.0` tag is published, and
+  a published tag is never re-pointed. The correction ships as `v1.0.1`.
+- **Verification:** the workflow parses as YAML and the matrix expression resolves;
+  the declared gates and the test suite pass unchanged.
+
 ## 1.0.0
 
 - **What:** the first release of the `protean-doctrine` ingredient: the capability payload,
