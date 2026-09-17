@@ -7,6 +7,19 @@ default five-stage pipeline, the universal role delegation map, the standard
 handoff protocol, the quality gates, the verification and tone discipline, and
 the external-writing contract.
 
+## Do you need this?
+
+ROLE: The operating doctrine ingredient. It carries the default five-stage pipeline, the universal role delegation map, the standard handoff protocol, the quality gates, and the external-writing contract.
+
+USE WHEN:
+- A project runs the Protean pipeline and needs the stage order, ownership boundaries, and gates a change must pass, read from `skills/protean-operating-doctrine/SKILL.md`.
+- Any prose bound for a human must pass the verification and tone discipline in `skills/external-writing-discipline/SKILL.md`.
+- A fresh tree must prove it has no internal-name leaks or dangling references via the two stdlib gates.
+
+SKIP WHEN:
+- The need is executable dispatch, records, drafts, or GitHub automation. Those live in the sibling ingredients and this one requires and recommends none.
+- The need is a runner or daemon. This ingredient installs skills and gates only.
+
 ## What it installs and where
 
 `install.sh` copies these tree-relative paths into the target directory, keeping
