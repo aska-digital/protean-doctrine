@@ -1,5 +1,10 @@
 The operating doctrine: the default pipeline, role delegation map, handoff protocol, QA gates, and external-writing discipline.
 
+```bash
+hermes skills tap add aska-digital/protean-skills
+hermes skills install aska-digital/protean-skills/merge-reconciler
+```
+
 # protean-doctrine
 
 The operating doctrine ingredient of the Protean Kit distribution. It carries the
