@@ -5,6 +5,12 @@ hermes skills tap add aska-digital/protean-skills
 hermes skills install aska-digital/protean-skills/merge-reconciler
 ```
 
+```bash
+hermes skills tap add aska-digital/protean-doctrine
+hermes skills install aska-digital/protean-doctrine/skills/external-writing-discipline
+hermes skills install aska-digital/protean-doctrine/skills/protean-operating-doctrine
+```
+
 # protean-doctrine
 
 The operating doctrine ingredient of the Protean Kit distribution. It carries the
