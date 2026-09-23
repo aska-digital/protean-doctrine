@@ -1,7 +1,7 @@
 ---
 name: protean-operating-doctrine
 description: Use when running any project with the Protean pipeline. Default stages, delegation map, handoff protocol, and QA gates.
-version: 1.4.0
+version: 1.5.0
 license: MIT
 ---
 
@@ -73,6 +73,24 @@ ownership, stable inputs, and a named approver before implementation begins.
 **Required dispatch fields.** Every brief states role, allowed decisions,
 forbidden decisions, owned files, upstream stable handoff, and exit evidence. A
 worker may not modify a file outside its owned boundary.
+
+**Relay boundary.** The relay does no project work. The relay is two layers above
+execution: the relay dispatches and supervises coordinator instances, each
+coordinator instance orchestrates the specialist roles, and the specialist roles
+execute. A query is never the relay's own work: search, list, fetch, probe, grep,
+enumerate, scan, curl and process reads are dispatched as lanes. The relay may
+read a status or receipt file whose path is already known, write a dispatch
+brief, launch a coordinator instance, and verify a returned artifact. The relay
+never edits project files, writes public content, posts GitHub comments or
+reviews, merges, deploys, or performs a specialist task. A query or action that
+belongs below the coordinator is routed to the coordinator, never performed
+directly by the relay.
+
+**Two-agent orchestration threshold.** Any workstream, including a one-off
+external write, is orchestrated by the coordinator. The relay interfaces only
+with the coordinator and keeps its hands on known status reads, dispatch briefs,
+coordinator launchers, and verification of returned receipts. The relay never
+dispatches a specialist directly and never performs a quick fix.
 
 ## 3. Lean and Six Sigma flow (Lean-Sigma fusion)
 
@@ -253,6 +271,46 @@ owner for facts, and are never silently patched by the auditor.
   issue comment.
 - Each profile must authenticate as its intended GitHub account. Never claim that
   another account's review represents the current reviewer.
+
+### Public commit-SHA presentation SOP (every role)
+
+Use commit SHAs for reproducibility, not decoration. A full 40-character SHA is required in
+machine-readable source pins and in exact validation evidence. It is not required in ordinary
+human-facing prose when a linked short SHA identifies the same commit.
+
+- **Catalog or installer pin:** publish the full 40-character SHA. It is the executable
+  authority coordinate together with the repository and the subdirectory. Never replace it with
+  a branch, a floating tag, or a short SHA.
+- **Exact validation evidence:** name the full SHA that was actually tested. The catalog pin,
+  the validation input, the manifest version, and the prose claim must all refer to the same
+  object. If the pin changes, rerun validation and update every reference before posting.
+- **Human-facing summary:** use the release version plus a linked 7-character short SHA. Do not
+  place a long unexplained hash in the opening paragraph.
+- **Evidence section:** include the full SHA once, in a compact provenance line or table, and
+  link the commit so a reader can inspect it.
+- **Ordinary pull-request or issue discussion:** include a full SHA only when it identifies an
+  exact head, source pin, regression, validation target, or rollback point. Otherwise use a
+  linked short SHA.
+- **Never duplicate hashes without purpose.** One full SHA in the machine field and one in the
+  evidence section is enough. Do not repeat it in the title, the summary, or every comment.
+- **Explain the function in plain language:** "The catalog pins the tested release commit." Do
+  not assume readers understand an unexplained hash.
+- **Read back before posting:** verify that the published full SHA resolves to the intended
+  repository commit, and that the public claim matches the live file or pull-request head.
+- **Scope:** this rule applies to plugin catalogs, release posts, pull requests, issues,
+  reviews, changelogs, and other public GitHub writing by every role. It does not expose
+  secrets, prompts, private state, or internal routing data.
+
+Recommended public pattern:
+
+```
+Adds protean-example-plugin v1.0.0 to the community plugin catalog.
+The catalog pins the tested release commit. Validation and smoke-test evidence
+are bound to that exact commit.
+
+Validation target: protean-example-plugin v1.0.0 - commit [abc1234](https://github.com/owner/repo/commit/abc1234def5678901234567890abcdef12345678)
+Exact catalog SHA: <full-40-character-sha>
+```
 
 ### Commit identity convention
 
