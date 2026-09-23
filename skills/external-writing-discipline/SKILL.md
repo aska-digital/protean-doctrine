@@ -1,7 +1,7 @@
 ---
 name: external-writing-discipline
 description: "Use when a human reads your writing. Cut filler."
-version: 1.6.0
+version: 1.7.0
 author: the Protean publication
 license: MIT
 platforms: [linux, macos, windows]
@@ -29,11 +29,19 @@ Every time you connect two words with a dash, ask whether the compound is jargon
 
 Keep the specific named technique (Erlang/OTP supervision trees, MoE, YAML, Apache-2.0, Redact/Gist/Title). The discipline is not to strip identifiers — it is to introduce each one with a plain sentence that carries the meaning on its own, so the name becomes a label rather than a dependency: "Workers do the work; the lead watches and restarts them when needed, with a limit on how many restarts are allowed. Modeled on Erlang/OTP supervision trees."
 
+## Approval boundary for evolving drafts
+
+Explicit approval applies to the exact text and exact target that was shown or agreed. If a live thread changes, or the draft is materially rewritten during reconciliation, stop and obtain approval for the revised text before posting. This is especially important on busy maintainer threads: a concise review can still sound condescending if its opener frames the work or assigns a verdict to the project authors. Do not treat approval to post an earlier draft as approval for a later rewrite.
+
 ## The core rule
 
 Before you post a piece of writing, read every sentence and ask: does this carry information a reader needs, or is it posture? If removing the sentence changes nothing, delete it.
 
 Then re-read the last paragraph you wrote. A closing paragraph is the most common place for filler to collect, because it feels like the writing needs a graceful exit. It does not. The point you already made is the ending.
+
+## Corrections should be short
+
+When a public post was malformed, correct it in place with one plain sentence that says what happened and what the reader should use instead. Do not explain the internal workflow, repeat the leaked value, or defend the mistake. Prefer human wording such as: `Posted in error (carried an unresolved file path instead of the review body). The full review follows below.` Then provide the review. A correction is not a second review and does not need a summary of the posting process.
 
 ## Evidence-led technical writing
 
@@ -65,6 +73,7 @@ When an agent writes and posts text itself (a PR body, a review, an issue or PR 
 1. Do not flatter the reader or the thing you are discussing. "This is the right shape" and "reads as the right design" are compliments nobody asked for, and they say nothing about your work.
 2. Do not restate the point you just made, dressed up as a conclusion. If the reader needed the point twice, the first sentence was weak. Make it once, make it clear.
 3. Do not disclaim your own message. "Not a request for changes" and "just real-world evidence" read as apology for having said something. Commit to the point or cut it.
+4. Do not append a redundant closing sentence that repeats a link's purpose. If a section already says the rule and links the ruling, omit a final "See #..." sentence; the link is enough.
 
 ## Tells readers now flag as AI writing
 
