@@ -536,6 +536,15 @@ the duty and the composition, and restates no bounded value.
   rebuild each commit with its own file set and its own author identity.
   Identical rebuilt trees across mirrors confirm the change is the same
   everywhere.
+- **Exception pinning bound.** A declared exception in any
+  integrity-verification surface must pin what it guarantees: the exact
+  payload bytes, not just the seal. A rule that pins only the record's
+  identity cannot survive an author who writes the identity first. Enforced
+  at the final verify path of the layer that declares it.
+- **Trust boundary on the write primitive.** An integrity surface and the
+  append primitive that feeds it are the same trust domain; a writer outside
+  the primitive is an addendum that verify cannot otherwise re-derive —
+  handle by pinning, not by loosening.
 
 ## Limits
 
