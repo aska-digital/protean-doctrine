@@ -5,16 +5,16 @@
 set -euo pipefail
 
 SLUG="protean-doctrine"
-VERSION="1.3.0"
+VERSION="2.0.0"
 
 PAYLOAD=(
   "skills/protean-operating-doctrine"
-  "skills/external-writing-discipline"
+  "skills/clean-writing"
   "gates/protean-doctrine")
 
 TARGETS=(
   "skills/protean-operating-doctrine"
-  "skills/external-writing-discipline"
+  "skills/clean-writing"
   "gates/protean-doctrine")
 
 TARGET=""

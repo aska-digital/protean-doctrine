@@ -1,13 +1,13 @@
 ---
-name: external-writing-discipline
+name: clean-writing
 description: "Use when a human reads your writing. Cut filler."
-version: 1.7.0
+version: 1.8.0
 author: the Protean publication
 license: MIT
 platforms: [linux, macos, windows]
 ---
 
-# External Writing Discipline
+# Clean Writing
 
 A short rule for anything a reader outside your head sees: PR comments, issue replies, chat to the user, client deliverables, release notes, review notes. The rule is simple: say what you did, what you found, what you need. Then stop.
 
@@ -61,11 +61,11 @@ The result should let a reviewer answer: what is included, how many items exist,
 
 When an agent writes and posts text itself (a PR body, a review, an issue or PR comment), it closes with one short line saying a machine wrote it:
 
-> Automated posting by agentic team with human oversight.
+> Posted by agents, reviewed by human.
 
 - Last line, as a blockquote. GitHub renders it muted, so it reads as a footnote rather than a claim in the argument.
 - No team or product name, no apology, no hedging, no "I am only an AI", no inviting a human to override it. It is a fact sentence.
-- Once per thread. A comment on your own PR or issue does not repeat it, because the body sits on the same page. Read it before posting: `gh pr view N --repo O/R --json body --jq '.body' | grep -c 'Automated posting'`. Non-zero means the body already carries the line, so the comment drops it; zero means add it.
+- Once per thread. A comment on your own PR or issue does not repeat it, because the body sits on the same page. Read it before posting: `gh pr view N --repo O/R --json body --jq '.body' | grep -c 'Posted by agents'`. Non-zero means the body already carries the line, so the comment drops it; zero means add it.
 - It never lowers the evidence bar and never softens a claim. Say what you did, what you found, what you need — the same as any other post.
 
 ## The three closing jobs you should never do

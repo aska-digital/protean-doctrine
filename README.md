@@ -7,7 +7,7 @@ hermes skills install aska-digital/protean-skills/merge-reconciler
 
 ```bash
 hermes skills tap add aska-digital/protean-doctrine
-hermes skills install aska-digital/protean-doctrine/skills/external-writing-discipline
+hermes skills install aska-digital/protean-doctrine/skills/clean-writing
 hermes skills install aska-digital/protean-doctrine/skills/protean-operating-doctrine
 ```
 
@@ -24,7 +24,7 @@ ROLE: The operating doctrine ingredient. It carries the default five-stage pipel
 
 USE WHEN:
 - A project runs the Protean pipeline and needs the stage order, ownership boundaries, and gates a change must pass, read from `skills/protean-operating-doctrine/SKILL.md`.
-- Any prose bound for a human must pass the verification and tone discipline in `skills/external-writing-discipline/SKILL.md`.
+- Any prose bound for a human must pass the verification and tone discipline in `skills/clean-writing/SKILL.md`.
 - A fresh tree must prove it has no internal-name leaks or dangling references via the two stdlib gates.
 
 SKIP WHEN:
@@ -39,7 +39,7 @@ their relative layout:
 | Path | Contents |
 |---|---|
 | `skills/protean-operating-doctrine/` | the doctrine skill |
-| `skills/external-writing-discipline/` | the writing-discipline skill and its reference |
+| `skills/clean-writing/` | the writing-discipline skill and its reference |
 | `gates/protean-doctrine/` | the two gates and the leak blocklist |
 
 ## Install
@@ -71,7 +71,7 @@ constrains nothing else and nothing else is needed to use it.
 Read `skills/protean-operating-doctrine/SKILL.md` first. It is always active for
 any project run with the Protean pipeline and defines the stage order, the
 ownership boundaries, and the gates a change must pass. Read
-`skills/external-writing-discipline/SKILL.md` before posting prose to a human.
+`skills/clean-writing/SKILL.md` before posting prose to a human.
 
 ## Gates
 

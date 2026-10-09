@@ -208,7 +208,7 @@ same rule, and the two copies would drift.
 Say what you did, found, or need, then stop. No flattery, no restated
 conclusions, no disclaimers, no signpost openers, no em-dash stitching, no
 rule-of-three or hyphen-pair inflation. The full contract is the
-`external-writing-discipline` skill shipped beside this one.
+`clean-writing` skill shipped beside this one.
 
 **Second-member proofread and audit are mandatory for every piece of writing.**
 No member self-approves their own prose. Before a written deliverable is

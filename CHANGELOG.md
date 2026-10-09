@@ -3,6 +3,23 @@
 All notable changes to this repository are recorded here. The format is a short
 entry per release: what changed, why, and how it was verified.
 
+## 2.0.0
+
+- **What:** rename the writing skill to `skills/clean-writing/` (its former name described the
+  audience rather than the discipline), and reword its closing sign-off line to
+  `Posted by agents, reviewed by human.` The skill's frontmatter name and title, its reference file,
+  the operating-doctrine skill's pointer to it, `README.md`, `install.sh`, `protean-ingredient.json`,
+  and `tests/test_install.py` all follow the new path.
+- **Why:** the skill name now states the capability, and the closing line states authorship and
+  review in fewer words.
+- **Breaking:** the payload and the install targets change, so a consumer that pins the former path
+  must re-pin. The version moves to `2.0.0`.
+- **How verified:** `python3 gates/protean-doctrine/check-internal-names.py .` and
+  `python3 gates/protean-doctrine/check-no-dangling-refs.py .` run clean on the changed tree, and
+  `python3 -m unittest discover -s tests` passes. The ingredient descriptor and the installer banner
+  are bumped to `2.0.0` and the skill frontmatter to `1.8.0` in the same change.
+- **License:** MIT. The committed `LICENSE` file is authoritative.
+
 ## 1.3.0
 
 - **What:** add section 13.2, *Draft or ready: the contribution entry state*, to the
