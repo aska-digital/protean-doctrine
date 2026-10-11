@@ -32,7 +32,7 @@ class TestInstall(unittest.TestCase):
             result = run(["--target", target])
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn("wrote: ", result.stdout)
-            for rel in ['gates/protean-doctrine', 'skills/external-writing-discipline', 'skills/protean-operating-doctrine']:
+            for rel in ['gates/protean-doctrine', 'skills/clean-writing', 'skills/protean-operating-doctrine']:
                 self.assertTrue(os.path.exists(os.path.join(target, rel)),
                                 "missing installed path: " + rel)
 

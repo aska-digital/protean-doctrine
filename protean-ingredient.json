@@ -1,17 +1,17 @@
 {
   "slug": "protean-doctrine",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "contract": "The operating doctrine: the default pipeline, role delegation map, handoff protocol, QA gates, and external-writing discipline.",
   "kind": "skills",
   "entrypoint": "install.sh",
   "payload": [
     "skills/protean-operating-doctrine",
-    "skills/external-writing-discipline",
+    "skills/clean-writing",
     "gates/protean-doctrine"
   ],
   "installTargets": [
     "skills/protean-operating-doctrine",
-    "skills/external-writing-discipline",
+    "skills/clean-writing",
     "gates/protean-doctrine"
   ],
   "gates": [
